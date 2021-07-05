@@ -20,7 +20,7 @@ namespace DynamicNumberArray
 
             int value = _dynamic[5];
             Console.WriteLine(value);
-           
+            Console.ReadLine();
         }
     }
 

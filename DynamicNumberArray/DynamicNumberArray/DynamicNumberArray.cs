@@ -8,26 +8,30 @@ namespace DynamicNumberArray
 {
         public class DynamicNumberArray
         {
-            private int[] buffer;
-            public DynamicNumberArray()
+        int[] buffer;
+        public DynamicNumberArray()
+        {
+            buffer = new int[5];
+        }
+        public DynamicNumberArray(int initialSize)
+        {
+            buffer = new int[initialSize];
+
+        }
+        public int this[int index]
+        {
+            set
             {
-                buffer = new int[5];
-            }
-            public DynamicNumberArray(int initialSize)
-            {
-                buffer = new int[initialSize];
-            }
-            public int this[int index]
-            {
-                set
+                if (index >= buffer.Length)
                 {
-                    Array.Resize(ref buffer, index + 5);
-                    buffer[index] = value;
+                    ArrayUtility.Resize(ref buffer, index + 5);
                 }
-                get
-                {
-                    return buffer[index];
-                }
+                buffer[index] = value;
+            }
+            get
+            {
+                return buffer[index];
             }
         }
+    }
     }
